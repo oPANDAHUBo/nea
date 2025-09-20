@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Essay History - Economics Marker</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="history.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <nav class="navbar">
+            <div class="nav-left">
+                <h1>Essay History</h1>
+            </div>
+            <div class="nav-right">
+                <span id="welcome-user"></span>
+                <button onclick="exportToJSON()" class="btn secondary">Export Data</button>
+                <button onclick="location.href='dashboard.html'" class="btn secondary">New Essay</button>
+                <button onclick="logout()" class="btn outline">Logout</button>
+            </div>
+        </nav>
+
+        <div class="main-content">
+            <div class="history-header">
+                <h2>Your Essay History</h2>
+                <p>View all your previously submitted essays and their feedback</p>
+            </div>
+
+            <div id="essay-list" class="essay-list">
+                <!-- Essays will be loaded here -->
+            </div>
+
+            <div id="no-essays" class="no-essays hidden">
+                <h3>No essays found</h3>
+                <p>You haven't submitted any essays yet. <a href="dashboard.html">Submit your first essay</a></p>
+            </div>
+        </div>
+
+        <!-- Essay Modal -->
+        <div id="essay-modal" class="modal hidden">
+            <div class="modal-content">
+                <span class="close" onclick="closeEssayModal()">&times;</span>
+                <div id="modal-essay-content"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="history.js"></script>
+</body>
+</html>

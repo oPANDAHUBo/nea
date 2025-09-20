@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- basic html setup for the dashboard page -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <nav class="navbar">
+            <div class="nav-left">
+                <h1>Essay Marker</h1>
+            </div>
+            <div class="nav-right">
+                <span id="welcome-user"></span>
+                <button onclick="logout()" class="btn outline">Logout</button>
+            </div>
+        </nav>  
+
+        <div class="main-content">
+            <div class="essay-form-section">
+                <h2>Essay Marker</h2>
+                <p>Enter your essay question and answer to receive detailed feedback</p>
+                
+                <form id="essay-form">
+                    <div class="form-group">
+                        <label for="question">Question:</label>
+                        <textarea 
+                            id="question" 
+                            name="question" 
+                            placeholder="Enter essay question" 
+                            rows="3" 
+                            required
+                        ></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="essay">Your Essay:</label>
+                        <textarea 
+                            id="essay" 
+                            name="essay" 
+                            placeholder="Enter economics essay" 
+                            rows="15" 
+                            required
+                        ></textarea>
+                    </div>
+                    
+                    <div class="form-actions">
+                        <button type="submit" class="btn primary">Submit for Marking</button>
+                    </div>
+                </form>
+            </div>
+
+            <div id="loading" class="loading hidden">
+                <div class="spinner"></div>
+                <p>Marking your essay with Gemini AI...</p>
+                <p class="loading-note">This may take a few moments</p>
+            </div>
+
+            <div id="feedback-section" class="feedback-section hidden">
+                <h3>Essay Feedback</h3>
+                <div id="feedback-content" class="feedback-content"></div>
+                <div class="feedback-actions">
+                    <button onclick="saveEssay()" class="btn primary">Save Essay & Feedback</button>
+                    <button onclick="viewHistory()" class="btn secondary">View Essay History</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="dashboard.js"></script>
+</body>
+</html>
